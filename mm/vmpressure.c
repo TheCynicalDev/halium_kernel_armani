@@ -383,6 +383,8 @@ int vmpressure_register_event(struct cgroup *cg, struct cftype *cft,
 	struct vmpressure_event *ev;
 	int level;
 
+	return -EINVAL;
+
 	BUG_ON(!vmpr);
 
 	for (level = 0; level < VMPRESSURE_NUM_LEVELS; level++) {
