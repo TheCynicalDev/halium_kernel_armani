@@ -144,13 +144,16 @@ pinctrl_find_gpio_range_from_pin(struct pinctrl_dev *pctldev,
 				 unsigned int pin);
 
 #ifdef CONFIG_OF
-extern struct pinctrl_dev *of_pinctrl_get(struct device_node *np);
+extern struct pinctrl_dev *of_pinctrl_add_gpio_range(struct device_node *np,
+		struct pinctrl_gpio_range *range);
 #else
 static inline
-struct pinctrl_dev *of_pinctrl_get(struct device_node *np)
+struct pinctrl_dev *of_pinctrl_add_gpio_range(struct device_node *np,
+		struct pinctrl_gpio_range *range)
 {
 	return NULL;
 }
+
 #endif /* CONFIG_OF */
 
 extern const char *pinctrl_dev_get_name(struct pinctrl_dev *pctldev);
